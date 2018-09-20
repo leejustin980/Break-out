@@ -191,7 +191,7 @@ function draw() {
 				}
 			} 
 			// hit the right
-			else {
+			else if (ballxPos > xPos + 50){
 				if (ballxSpeed < 0) {
 					ballxSpeed = -ballxSpeed;
 				}
@@ -200,10 +200,11 @@ function draw() {
 			if (ballxSpeed <= 4){
 				ballxSpeed *= 1.1;
 			}
-			if (ballySpeed <= 8){
+			if (ballySpeed <= 6){
 				ballySpeed *= -1.1;
 			}
-			ballyPos = yPos-15;
+			// teleport ball up
+			ballyPos = yPos-20;
 			boing.play();
 		}
 
@@ -241,7 +242,7 @@ function draw() {
 		drawWords(width * .75);
 
 		// ball - goes out of bounds - you lose - reset game
-		if (ballyPos > yPos-10) {
+		if (ballyPos > yPos-5) {
 			
 			// lose sound
 			lose.play();
